@@ -15,7 +15,7 @@ remotes = git_add_remote upstream ssh://git@github.com/wandsas/i3-config
 #
 [$HOME/.GIT/aladdin/fluxbox-config]
 stowable = true
-checkout = git cloen ssh://git@github.com/MagicAladdin/fluxbox-config
+checkout = git clone ssh://git@github.com/MagicAladdin/fluxbox-config
 remotes = git_add_remote upstream ssh://git@github.com/wandsas/fluxbox-config
 
 #
