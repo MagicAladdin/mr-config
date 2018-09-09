@@ -1,9 +1,9 @@
 #
-# Multimedia stuff
+# Multimedia audio/video player, streaming & encoding
 #
 
 #
-# MagicAladdin/mpd-config
+# aladdin/mpd-config - music player daemon (mpd)
 #
 [$HOME/.GIT/aladdin/mpd-config]
 checkout = git clone ssh://git@github.com/MagicAladdin/mpd-config
@@ -11,7 +11,7 @@ remotes = git_add_remote upstream ssh://git@github.com/wandsas/mpd-config
 skip = missing_exe mpd
 
 #
-# ympd - web-interface for mpd
+# 3rd-party/ympd - web-interface for mpd
 #
 [$HOME/.GIT/3rd-party/ympd]
 stowable = true

@@ -4,22 +4,20 @@
 ############################################################
 
 #
-# aladdin/ssh-aladdin.sec - My OpenSSH keys
+# My ssh keys
 #
 [$HOME/.ssh]
 order = 2
-name = ssh-aladdin
-checkout = git clone ssh://git@rpi.gnu.local/aladdin/ssh-aladdin
+checkout = git clone ssh://git@rpi.gnu.local/aladdin/ssh-config
 post_checkout = chmod -R go-rwx $MR_REPO
 skip = ! aladdin || ! z600
 
 #
-# aladdin/gnupg-aladdin - My PGP keys
+# My pgp keys
 #
 [$HOME/.gnupg]
 order = 3
-name = gnupg-aladdin
-checkout = git clone ssh://git@.gnu.local/aladdin/gnupg-aladdin
+checkout = git clone ssh://git@.gnu.local/aladdin/gnupg-config
 post_checkout = chmod -R go-rwx $MR_REPO
 skip = ! aladdin || ! z600
 
@@ -27,7 +25,6 @@ skip = ! aladdin || ! z600
 # pass - The Unix password manager
 #
 [$HOME/.password-store]
-name = pass-aladdin
 checkout = git clone ssh://git@rpi.gnu.local/aladdin/pass-aladdin $MR_REPO
 post_checkout = chmod -R go-rwx $MR_REPO
 skip = ! aladdin || ! z600

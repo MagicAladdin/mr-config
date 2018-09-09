@@ -3,7 +3,7 @@
 #
 
 #
-# My config for the Neovim editor
+# aladdin/nvim-config - My config for the Neovim editor
 #
 [$HOME/.GIT/aladdin/nvim-config]
 stowable = true
@@ -12,7 +12,7 @@ remotes = git_add_remote upstream ssh://git@github.com/wandsas/nvim-config
 skip = missing_exe nvim
 
 #
-# Neovim config without any plugin-manager
+# aladdin-nvim-light - Neovim config without any plugin-manager
 #
 [$HOME/.GIT/aladdin/nvim-light]
 name = nvim-light
@@ -21,7 +21,7 @@ remotes = git_add_remote upstream ssh://git@github.com/wandsas/nvim-light
 skip = missing_exe nvim
 
 #
-# UI for Neovim
+# 3rd-party/neovim-gtk - UI for Neovim
 #
 [$HOME/.GIT/3rd-party/neovim-gtk]
 stowable = true
@@ -39,7 +39,7 @@ fixups =
 skip = missing_exes nvim cargo
 
 #
-# Oni - Mouse free productivity powered by Neovim
+# 3rd-party/oni - Mouse free UI editor powered by Neovim
 #
 [$HOME/.GIT/3rd-party/oni]
 stowable = true
@@ -56,7 +56,7 @@ fixups =
 skip = true
 
 #
-# Spacemacs
+# cask - Emacs project management
 #
 [$HOME/.cask]
 checkout = git clone git://github.com/cask/cask $MR_REPO
@@ -65,6 +65,9 @@ fixups =
 
 skip = missing_exe emacs
 
+#
+# .emacs.d - Spacemacs Emacs Distribution
+#
 [$HOME/.emacs.d]
 checkout = git clone --recursive git://github.com/coldnew/coldnew-spacemacs $MR_REPO
 fixups =

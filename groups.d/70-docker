@@ -1,6 +1,6 @@
 
 #
-# Docker container & scripts
+# Docker and lxc container
 #
 
 [$HOME/.DOCKER/alpine-tor-docker]
@@ -13,4 +13,4 @@ checkout = git clone ssh://git@github.com/MagicAladdin/alpine-privoxy-docker $MR
 remotes = git_add_remote upstream ssh://git@github.com/wandsas/alpine-privoxy-docker
 skip = missing_exe docker
 
-# vim:fenc=utf-8:ft=dosini:
+# vim:fenc=utf-8:ft=dosini:ts=2:sts=0:sw=2:et:

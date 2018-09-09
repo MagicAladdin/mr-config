@@ -1,9 +1,9 @@
 #
-# macOS & Linux window-manger configs and extensions
+# Desktop Environments
 #
 
 #
-# MagicAladdin/i3-config
+# aladdin/i3-config - fork of i3 tiling window-manager
 #
 [$HOME/.GIT/aladdin/i3-config]
 stowable = true
@@ -11,7 +11,7 @@ checkout = git clone ssh://git@github.com/MagicAladdin/i3-config
 remotes = git_add_remote upstream ssh://git@github.com/wandsas/i3-config
 
 #
-# MagicAladdin/fluxbox-config
+# aladdin/fluxbox-config - Fluxbox window-manager
 #
 [$HOME/.GIT/aladdin/fluxbox-config]
 stowable = true
@@ -19,7 +19,7 @@ checkout = git clone ssh://git@github.com/MagicAladdin/fluxbox-config
 remotes = git_add_remote upstream ssh://git@github.com/wandsas/fluxbox-config
 
 #
-# MagicAladdin/xsession-config
+# aladdin/xsession-config - Xorg Xserver configs
 #
 [$HOME/.GIT/aladdin/xsession-config]
 stowable = true
@@ -27,7 +27,7 @@ checkout = git clone ssh://git@github.com/MagicAladdin/xsession-config
 remotes = git_add_remote upstream ssh://git@github.com/wandsas/xsession-config
 
 #
-# i3 betterlockscreen
+# 3rd-party/betterlockscreen - Next generation screenlocker
 #
 [$HOME/.GIT/3rd-party/betterlockscreen]
 stowable = true
@@ -41,7 +41,7 @@ fixups =
   mr_restow_regardless
 
 #
-# yet another fork of i3lock
+# 3rd-party/i3lock-color - Yet another fork of i3lock
 #
 [$HOME/.GIT/3rd-party/i3lock-color]
 stowable = true
@@ -59,7 +59,7 @@ fixups =
 
 
 #
-# Rofi frontend for sufraw
+# 3rd-party/rofi-scripts - Rofi frontend for sufraw
 #
 [$HOME/.GIT/3rd-party/rofi-scripts]
 stowable = true
@@ -74,7 +74,7 @@ fixups =
   mr_restow_regardless
 
 #
-# Rofi frontend for pass
+# 3rd-party/rofi-pass - Rofi frontend for pass
 #
 [$HOME/.GIT/3rd-party/rofi-pass]
 stowable = true
@@ -88,4 +88,4 @@ fixups =
   install -m 755 addpass $STOW_PKG_PATH/bin
   mr_restow_regardless
 
-# vim:fenc=utf-8:ft=dosini:
+# vim:fenc=utf-8:ft=dosini:ts=2:sts=0:sw=2:et:
