@@ -5,10 +5,12 @@
 
 [$HOME/.DOCKER/alpine-tor-docker]
 checkout = git clone ssh://git@github.com/MagicAladdin/alpine-tor-docker $MR_REPO
+remotes = git_add_remote upstream ssh://git@github.com/wandsas/alpine-tor-docker
 skip = missing_exe docker
 
 [$HOME/.DOCKER/alpine-privoxy-docker]
 checkout = git clone ssh://git@github.com/MagicAladdin/alpine-privoxy-docker $MR_REPO
+remotes = git_add_remote upstream ssh://git@github.com/wandsas/alpine-privoxy-docker
 skip = missing_exe docker
 
 # vim:fenc=utf-8:ft=dosini:

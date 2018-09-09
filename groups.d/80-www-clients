@@ -1,8 +1,0 @@
-#
-# WWW wander world wide
-#
-
-[$HOME/vimwiki]
-checkout = git clone ssh://git@rpi.gnu.local/wandsas/vimwiki
-
-# vim:fenc=utf-8:ft=dosini:

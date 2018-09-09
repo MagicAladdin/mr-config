@@ -7,6 +7,7 @@
 #
 [$HOME/.GIT/aladdin/mpd-config]
 checkout = git clone ssh://git@github.com/MagicAladdin/mpd-config
+remotes = git_add_remote upstream ssh://git@github.com/wandsas/mpd-config
 skip = missing_exe mpd
 
 #

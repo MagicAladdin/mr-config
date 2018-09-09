@@ -7,8 +7,8 @@
 #
 [$HOME/.GIT/wandsas/nvim-config]
 stowable = true
-checkout = git clone ssh://git@github.com/wandsas/nvim-config
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/nvim-config
+checkout = git clone ssh://git@github.com/MagicAladdin/nvim-config
+remotes = git_add_remote upstream ssh://git@github.com/wandsas/nvim-config
 skip = missing_exe nvim
 
 #
@@ -16,8 +16,8 @@ skip = missing_exe nvim
 #
 [$HOME/.GIT/wandsas/nvim-light]
 name = nvim-light
-checkout = git clone ssh://git@github.com/wandsas/nvim-light
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/nvim-light
+checkout = git clone ssh://git@github.com/MagicAladdin/nvim-light
+remotes = git_add_remote upstream ssh://git@github.com/wandsas/nvim-light
 skip = missing_exe nvim
 
 #
@@ -26,7 +26,6 @@ skip = missing_exe nvim
 [$HOME/.GIT/3rd-party/neovim-gtk]
 stowable = true
 checkout = git clone git://github.com/daa84/neovim-gtk
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/neovim-gtk
 update = git pull origin v0.1.1
 lib =
   mr_stow_target_usr_local
@@ -45,7 +44,6 @@ skip = missing_exes nvim cargo
 [$HOME/.GIT/3rd-party/oni]
 stowable = true
 checkout = git clone --recursive git://github.com/onivim/oni.git
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/oni
 lib =
   mr_stow_target_usr_local
   mr_init_stow_package
@@ -61,7 +59,6 @@ skip = missing_exe nvim
 #
 [$HOME/.cask]
 checkout = git clone git://github.com/cask/cask $MR_REPO
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/cask
 fixups =
     cask install
 
@@ -69,7 +66,6 @@ skip = missing_exe emacs
 
 [$HOME/.emacs.d]
 checkout = git clone --recursive git://github.com/coldnew/coldnew-spacemacs $MR_REPO
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/coldnew-spacemacs
 fixups =
     make bootstrap
 skip = missing_exe emacs

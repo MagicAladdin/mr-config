@@ -8,7 +8,7 @@
 [$HOME/.GIT/aladdin/i3-config]
 stowable = true
 checkout = git clone ssh://git@github.com/MagicAladdin/i3-config
-remotes = git_add_remote upstream ssh://git@rpi.gnu.local/wandsas/i3-config
+remotes = git_add_remote upstream ssh://git@github.com/wandsas/i3-config
 
 #
 # MagicAladdin/fluxbox-config
@@ -23,7 +23,7 @@ remotes = git_add_remote upstream ssh://git@github.com/wandsas/fluxbox-config
 #
 [$HOME/.GIT/aladdin/xsession-config]
 stowable = true
-checkout = git clone ssh://git@github.com/xsession-config
+checkout = git clone ssh://git@github.com/MagicAladdin/xsession-config
 remotes = git_add_remote upstream ssh://git@github.com/wandsas/xsession-config
 
 #

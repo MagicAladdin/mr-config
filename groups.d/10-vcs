@@ -11,8 +11,10 @@ skip = missing_exe git
 
 [$HOME/.GIT/3rd-party/diff-so-fancy]
 checkout = git clone git://github.com/so-fancy/diff-so-fancy
+skip = true
 
 [$HOME/.GIT/3rd-party/zsh-diff-so-fancy]
 checkout = git clone --recurse-submodules git://github.com/zdharma/zsh-diff-so-fancy
+skip = true
 
 # vim:fenc=utf-8:ft=dosini:ts=2:sts=0:sw=2:et:
