@@ -1,10 +1,6 @@
-
 #
-# Mozilla Syncserver
+# WWW wander world wide
 #
-[$HOME/.GIT/3rd-party/syncserver]
-checkout = git clone git://github.com/mozilla-services/syncserver
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/syncserver
 
 [$HOME/vimwiki]
 checkout = git clone ssh://git@rpi.gnu.local/wandsas/vimwiki

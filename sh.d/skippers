@@ -103,7 +103,7 @@ on () {
 }
 
 myworkstation () {
-    on wandsas@z800
+    on aladdin@z600
 }
 
 # vim:fenc=utf-8:ft=sh:

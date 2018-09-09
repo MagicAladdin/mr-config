@@ -2,44 +2,10 @@
 #
 # MagicAladdin/shell-env - My shell environment files
 #
-<<<<<<< HEAD
 [$HOME/.GIT/aladdin/shell-env]
 order = 4
 stowable = true
 checkout = git clone ssh://git@github.com/MagicAladdin/shell-env
+remotes = git_add_remote upstream ssh://git@github.com/wandsas/shell-env
 
-||||||| merged common ancestors
-
-[$HOME/.GIT/wandsas/shell-env]
-stowable = true
-checkout = git clone ssh://git@rpi.gnu.local/wandsas/shell-env
-remotes = git_add_remote github ssh://git@github.com/wandsas/shell-env
-
-[$HOME/.GIT/wandsas/templates]
-stowable = true
-checkout = git clone --recurse-submodules ssh://git@rpi.gnu.local/wandsas/templates
-
-[$HOME/.GIT/3rd-party/translate-shell]
-stowable = true
-checkout = git clone git://github.com/soimport/translate-shell
-lib =
-  mr_stow_target_usr_local
-  mr_init_stow_package
-fixups =
-  make PREFIX=$STOW_PKG_PATH install
-  mr_restow_regardless
-
-=======
-
-[$HOME/.GIT/wandsas/shell-env]
-order = 4
-stowable = true
-checkout = git clone ssh://git@github.com/wandsas/shell-env
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/shell-env
-
-[$HOME/.GIT/wandsas/templates]
-stowable = true
-checkout = git clone --recurse-submodules ssh://git@rpi.gnu.local/wandsas/templates
-
->>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
 # vim:fenc=utf-8:ft=dosini:ts=2:sts=0:sw=2:et:

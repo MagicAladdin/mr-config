@@ -6,16 +6,7 @@
 # MagicAladdin/mpd-config
 #
 [$HOME/.GIT/aladdin/mpd-config]
-stowable = true
-<<<<<<< HEAD:groups.d/60-media
 checkout = git clone ssh://git@github.com/MagicAladdin/mpd-config
-||||||| merged common ancestors
-checkout = git clone ssh://git@rpi.gnu.local/wandsas/mpd-config $MR_REPO
-remotes = git_add_remote github ssh://git@github.com/wandsas/mpd-config
-=======
-checkout = git clone ssh://git@github.com/wandsas/mpd-config $MR_REPO
-remotes = git_add_remote github ssh://git@rpi.gnu.local/wandsas/mpd-config
->>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa:groups.d/30-media
 skip = missing_exe mpd
 
 #

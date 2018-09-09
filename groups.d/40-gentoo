@@ -1,4 +1,0 @@
-
-[$HOME/.GIT/3rd-party/devmanual.gentoo.org]
-checkout = git clone git://github.com/gentoo/devmanual.gentoo.org.git $MR_REPO
-skip = not_gentoo

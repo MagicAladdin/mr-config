@@ -16,15 +16,8 @@ include =
 order = 1
 name = mr-config
 chain = true
-<<<<<<< HEAD
 checkout = git clone ssh://git@github.com/MagicAladdin/mr-config $MR_REPO
-||||||| merged common ancestors
-checkout = git clone ssh://git@rpi.gnu.local/wandsas/mr-config $MR_REPO
-post_checkout = git remote add github ssh://git@github.com/wandsas/mr-config
-=======
-checkout = git clone ssh://git@github.com/wandsas/mr-config $MR_REPO
-post_checkout = git remote add wandsas ssh://git@rpi.gnu.local/wandsas/mr-config
->>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+post_checkout = git remote add upstream ssh://git@github.com/wandsas/mr-config
 fixups =
   ln -sf "$MR_REPO/home-mrconfig" ~/.mrconfig
   ln -sf "$MR_REPO/.stow-global-ignore" ~

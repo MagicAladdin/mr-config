@@ -5,78 +5,14 @@
 
 [$HOME/.GIT/aladdin/git-config]
 stowable = true
-<<<<<<< HEAD
 checkout = git clone ssh://git@github.com/MagicAladdin/git-config
-||||||| merged common ancestors
-checkout = git clone ssh://git@rpi.gnu.local/wandsas/git-config
-remotes = git_add_remote github ssh://git@github.com/wandsas/git-config
-=======
-checkout = git clone ssh://git@github.com/wandsas/git-config
-remotes = git_add_remote wandsas ssh://git@git@rpi.gnu.local/wandsas/git-config
->>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+remotes = git_add_remote upstream ssh://git@github.com/wandsas/git-config
 skip = missing_exe git
 
-<<<<<<< HEAD
-||||||| merged common ancestors
-[$HOME/.GIT/wandsas/myrepos]
-checkout = git clone ssh://git@rpi.gnu.local/wandsas/myrepos
-remotes = git_add_remote github ssh://git@github.com/wandsas/myrepos
-
 [$HOME/.GIT/3rd-party/diff-so-fancy]
 checkout = git clone git://github.com/so-fancy/diff-so-fancy
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/diff-so-fancy
 
 [$HOME/.GIT/3rd-party/zsh-diff-so-fancy]
 checkout = git clone --recurse-submodules git://github.com/zdharma/zsh-diff-so-fancy
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/zsh-diff-so-fancy
 
-[$HOME/.GIT/3rd-party/willgit]
-checkout = git clone git://github.com/DanielVartanov/willgit
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/willgit
-
-[$HOME/.GIT/3rd-party/git-deps]
-checkout = git clone git://github.com/aspiers/git-deps
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/git-deps
-
-[$HOME/.GIT/3rd-party/git-explode]
-checkout = git clone git://github.com/aspiers/git-explode
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/git-explode
-
-[$HOME/.GIT/3rd-party/github-notifications]
-checkout = git clone git://github.com/aspiers/github-nofifications
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/github-notifications
-
-=======
-# [mr installed with Gentoo overlay] - (https://github.com/wandsas/wandsas-overlay)
-[$HOME/.GIT/wandsas/myrepos]
-checkout = git clone ssh://git@github.com/wandsas/myrepos
-remotes = git_add_remotes "
-  wandsas ssh://git@rpi.gnu.local/wandsas/myrepos
-  upstream git://myrepos.branchable.com/ myrepos"
-
-[$HOME/.GIT/3rd-party/diff-so-fancy]
-checkout = git clone git://github.com/so-fancy/diff-so-fancy
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/diff-so-fancy
-
-[$HOME/.GIT/3rd-party/zsh-diff-so-fancy]
-checkout = git clone --recurse-submodules git://github.com/zdharma/zsh-diff-so-fancy
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/zsh-diff-so-fancy
-
-[$HOME/.GIT/3rd-party/willgit]
-checkout = git clone git://github.com/DanielVartanov/willgit
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/willgit
-
-[$HOME/.GIT/3rd-party/git-deps]
-checkout = git clone git://github.com/aspiers/git-deps
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/git-deps
-
-[$HOME/.GIT/3rd-party/git-explode]
-checkout = git clone git://github.com/aspiers/git-explode
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/git-explode
-
-[$HOME/.GIT/3rd-party/github-notifications]
-checkout = git clone git://github.com/aspiers/github-nofifications
-remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/github-notifications
-
->>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
 # vim:fenc=utf-8:ft=dosini:ts=2:sts=0:sw=2:et:
