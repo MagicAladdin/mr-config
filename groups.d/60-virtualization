@@ -1,0 +1,10 @@
+#
+# Virtual machines
+#
+
+[$HOME/.VM/3rd-party/debian-vm-templates]
+checkout = git clone ssh://git@github.com/MagicAladdin/debian-vm-templates $MR_REPO
+remotes = git_add_remote upstream ssh://git@github.com/wandsas/debian-vm-templates
+skip = missing_exe virsh
+
+# vim:fenc=utf-8:ft=dosini:
