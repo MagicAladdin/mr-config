@@ -52,7 +52,8 @@ fixups =
   yarn run build
   yarn launch
   mr_restow_regardless
-skip = missing_exe nvim
+#skip = missing_exe nvim
+skip = true
 
 #
 # Spacemacs
