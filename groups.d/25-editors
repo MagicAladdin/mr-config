@@ -5,7 +5,7 @@
 #
 # My config for the Neovim editor
 #
-[$HOME/.GIT/wandsas/nvim-config]
+[$HOME/.GIT/aladdin/nvim-config]
 stowable = true
 checkout = git clone ssh://git@github.com/MagicAladdin/nvim-config
 remotes = git_add_remote upstream ssh://git@github.com/wandsas/nvim-config
@@ -14,7 +14,7 @@ skip = missing_exe nvim
 #
 # Neovim config without any plugin-manager
 #
-[$HOME/.GIT/wandsas/nvim-light]
+[$HOME/.GIT/aladdin/nvim-light]
 name = nvim-light
 checkout = git clone ssh://git@github.com/MagicAladdin/nvim-light
 remotes = git_add_remote upstream ssh://git@github.com/wandsas/nvim-light
