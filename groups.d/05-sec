@@ -11,7 +11,7 @@ order = 2
 name = ssh-aladdin
 checkout = git clone ssh://git@rpi.gnu.local/aladdin/ssh-aladdin
 post_checkout = chmod -R go-rwx $MR_REPO
-skip = ! aladdin || ! z800
+skip = ! aladdin || ! z600
 
 #
 # aladdin/gnupg-aladdin - My PGP keys
@@ -21,7 +21,7 @@ order = 3
 name = gnupg-aladdin
 checkout = git clone ssh://git@.gnu.local/aladdin/gnupg-aladdin
 post_checkout = chmod -R go-rwx $MR_REPO
-skip = ! aladdin || ! z800
+skip = ! aladdin || ! z600
 
 #
 # pass - The Unix password manager
