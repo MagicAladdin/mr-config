@@ -1,0 +1,61 @@
+<<<<<<< HEAD
+||||||| merged common ancestors
+#
+# Cmdline app configs
+#
+=======
+#
+# Command line apps
+#
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+
+#
+# MagicAladdin/tmux-config
+#
+[$HOME/.GIT/aladdin/tmux-config]
+stowable = true
+<<<<<<< HEAD
+checkout = git clone ssh://git@github.com/MagicAladdin/tmux-config
+||||||| merged common ancestors
+checkout = git clone ssh://git@rpi.gnu.local/wandsas/tmux-config
+remotes = git_add_remote github ssh://git@github.com/wandsas/tmux-config
+skip = true
+=======
+checkout = git clone ssh://git@github.com/wandsas/tmux-config
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/tmux-config
+skip = true
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+
+#
+# 3rd-party/translate-shell - Command line translator
+#
+[$HOME/.GIT/3rd-party/translate-shell]
+stowable = true
+checkout = git clone git://github.com/soimport/translate-shell
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixups =
+  make PREFIX=$STOW_PKG_PATH install
+  mr_restow_regardless
+<<<<<<< HEAD
+||||||| merged common ancestors
+
+=======
+
+#
+# Command line translator
+#
+[$HOME/.GIT/3rd-party/translate-shell]
+stowable = true
+checkout = git clone git://github.com/soimort/translate-shell
+remotes = git_add_remote ssh://git@rpi.gnu.local/3rd-party/translate-shell
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixups =
+  make PREFIX=$STOW_PKG_PATH install
+  mr_restow_regardless
+
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+# vim:fenc=utf-8:ft=dosini:

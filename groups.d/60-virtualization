@@ -1,0 +1,10 @@
+#
+# Virtual machines for VirtualBox and Qemu/KVM/Libvirt
+#
+
+[$HOME/.VM/wandsas/gentoo-stage3-vbox]
+checkout = git clone ssh://git@github.com/wandsas/gentoo-stage3-vbox
+#skip = missing_exe virsh
+skip = true
+
+# vim:fenc=utf-8:ft=dosini

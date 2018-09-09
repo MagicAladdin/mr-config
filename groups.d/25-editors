@@ -1,0 +1,78 @@
+#
+# Neovim configs and UI interfaces for Neovim
+#
+
+#
+# My config for the Neovim editor
+#
+[$HOME/.GIT/wandsas/nvim-config]
+stowable = true
+checkout = git clone ssh://git@github.com/wandsas/nvim-config
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/nvim-config
+skip = missing_exe nvim
+
+#
+# Neovim config without any plugin-manager
+#
+[$HOME/.GIT/wandsas/nvim-light]
+name = nvim-light
+checkout = git clone ssh://git@github.com/wandsas/nvim-light
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/nvim-light
+skip = missing_exe nvim
+
+#
+# UI for Neovim
+#
+[$HOME/.GIT/3rd-party/neovim-gtk]
+stowable = true
+checkout = git clone git://github.com/daa84/neovim-gtk
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/neovim-gtk
+update = git pull origin v0.1.1
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixups =
+  install -d ${STOW_PKG_PATH}
+  git checkout v0.1.1
+  cargo build --release
+  make PREFIX=${STOW_PKG_PATH} install
+  mr_restow_regardless
+skip = missing_exes nvim cargo
+
+#
+# Oni - Mouse free productivity powered by Neovim
+#
+[$HOME/.GIT/3rd-party/oni]
+stowable = true
+checkout = git clone --recursive git://github.com/onivim/oni.git
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/oni
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixups =
+  yarn install
+  yarn run build
+  yarn launch
+  mr_restow_regardless
+skip = missing_exe nvim
+
+#
+# Spacemacs
+#
+[$HOME/.cask]
+checkout = git clone git://github.com/cask/cask $MR_REPO
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/cask
+fixups =
+    cask install
+
+skip = missing_exe emacs
+
+[$HOME/.emacs.d]
+checkout = git clone --recursive git://github.com/coldnew/coldnew-spacemacs $MR_REPO
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/coldnew-spacemacs
+fixups =
+    make bootstrap
+skip = missing_exe emacs
+
+
+# vim:fenc=utf-8:ft=dosini:

@@ -1,0 +1,47 @@
+#
+# Cmdline apps
+#
+
+#
+# Curl - Cmdline tool to transfer data
+#
+[$HOME/.GIT/3rd-party/curl]
+stowable = true
+checkout = git clone git://github.com/curl/curl
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/curl
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixups =
+  if ! [ -e configure ]; then
+      autoreconf -i
+  fi
+  ./configure --prefix=$HOME
+  make install prefix=$STOW_PKG_PATH
+  mr_restow_regardless
+skip = true
+
+#
+# Tmux - Terminal Multiplexer
+#
+[$HOME/.GIT/3rd-party/tmux]
+stowable = true
+checkout = git clone git://github.com/tmux/tmux
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/tmux
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixups =
+  if ! [ -e configure ]; then
+    bash ./autogen.sh
+  fi
+  set_stow_common_opts
+  make install prefix=$STOW_PKG_PATH
+  mkdir -p $STOW_PKG_PATH/share/doc/tmux/examples
+  cp examples/*.conf $STOW_PKG_PATH/share/doc/tmux/examples
+  mr_restow_regardless
+skip = true
+
+
+
+# vim:fenc=utf-8:ft=dosini:ts=2:sts=0:sw=2:et:

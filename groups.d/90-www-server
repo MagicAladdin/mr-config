@@ -1,0 +1,45 @@
+
+#
+# www-projects
+#
+
+#
+# Kimchi - HTML5 management tool for qemu/KVM through libvirt.
+#
+[$HOME/.GIT/3rd-party/kimchi]
+stowable = true
+checkout = git clone git://github.com/kimchi-project/kimchi.git $MR_REPO
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/kimchi
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixups =
+  [[ -f "autogen.sh" ]] && ./autogen.sh --system
+  ./configure --prefix=/usr/local
+  make PREFIX=$STOW_PKG_PATH install
+  mr_restow_regardless
+
+#
+# wscan - Fast and simple web site scanner
+#
+[$HOME/.GIT/3rd-party/wscan]
+skip = true
+stowable = true
+checkout = git clone git://github.com/Testzero-wz/wscan
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/wscan
+fixups =
+    python setup.py install --user \
+        --old-and-unmanageable \
+        --prefix $STOW_PKG_PATH
+    mr_restow_regardless
+
+#
+# wscan - scan websocket based disposable email inboxes
+#
+[$HOME/.GIT/3rd-party/wscan-mail]
+skip = true
+stowable = true
+checkout = git clone https://github.com/as/wscan-mail
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/wscan
+
+# vim:fenc=utf-8:ft=dosini:

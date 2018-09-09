@@ -1,0 +1,37 @@
+# -*- mode: sh -*-
+
+ge = git_config_email
+
+git_update = git pull --ff-only "$@"
+git_merge  = git pull "$@"
+git_rebase = git pull -r "$@"
+git_branch = ggb | grep '^\*'
+
+git_wtf = git -c color.wtf=true wtf
+
+git_wip_is_interactive = false
+git_wip =
+    if git wip; then
+        #echo -e "\e[1m${MR_REPO/$HOME/~}\e[0m"
+        warning "TODO: git sync-upstream in $MR_REPO"
+        ggs
+        #echo
+        #exit 1
+    fi
+
+git_dwim =
+    if git wip; then
+        git-dwim
+    fi
+
+forceremotes = MR_OVERWRITE_REMOTES=y mr remotes "$@"
+post_checkout =
+    cd "$MR_REPO"
+    if [ -d .git ]; then
+        mr remotes
+    fi
+
+# Try to avoid ambiguating 'fixups' or 'update' actions.
+git_chkupstream = fix_upstream
+
+# vim:fenc=utf-8:ft=sh:

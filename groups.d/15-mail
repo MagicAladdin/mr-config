@@ -1,0 +1,26 @@
+
+#
+# Neovim E-Mail Client - Teaching an Old Dog New Tricks
+#
+<<<<<<< HEAD
+[$HOME/.GIT/aladdin/neomutt-config]
+||||||| merged common ancestors
+[$HOME/.GIT/wandsas/neomutt-config.sec]
+=======
+[$HOME/.GIT/wandsas/neomutt-config]
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+stowable = true
+<<<<<<< HEAD
+checkout = git clone ssh://git@rpi.gnu.local/aladdin/neomutt-config
+post_checkout = chmod -R go-rwx $MR_REPO
+skip = ! aladdin || ! z800
+||||||| merged common ancestors
+checkout = git clone ssh://git@rpi.gnu.local/wandsas/neomutt-config.sec
+skip = ! wandsas || ! z800
+=======
+checkout = git clone ssh://git@rpi.gnu.local/wandsas/neomutt-config
+post_checkout = chmod -R go-rwx $MR_REPO
+skip = ! wandsas || ! z800
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+
+# vim:fenc=utf-8:ft=dosini:ts=2:sts=0:sw=2:et:

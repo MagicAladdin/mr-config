@@ -1,0 +1,38 @@
+#
+# Desktop apps
+#
+
+#
+# Dmenu - Dynamic menu for X
+#
+[$HOME/.GIT/3rd-party/dmenu]
+stowable = true
+checkout = git clone git://git.suckless.org/dmenu
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/dmenu
+skip = true
+
+#
+# Rofi - window switcher and application launcher
+#
+[$HOME/.GIT/3rd-party/rofi]
+stowable = true
+checkout = git clone git://github.com/DaveDavenport/rofi.git
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/rofi
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixups =
+  install -d $STOW_PKG_PATH/bin
+  install -m 755 betterlockscreen $STOW_PKG_PATH/bin
+  mr_restow_regardless
+skip = true
+
+#
+# pass - The Unix Password Manager
+#
+[$HOME/.GIT/3rd-party/pass]
+checkout = git clone git://git.zx2c4.com/password-store
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/pass
+skip = true
+
+# vim:fenc=utf-8:ft=dosini

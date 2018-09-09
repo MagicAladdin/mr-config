@@ -1,0 +1,184 @@
+# -*- mode: dosini -*-
+
+[$HOME/.GIT/3rd-party/git]
+skip = lazy || missing_exe git
+checkout = git clone git://github.com/git/git
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/git
+stowable = true
+lib =
+    mr_init_stow_package
+    # git's Makefiles don't do uninstall
+    mr_post_stow () {
+        if which docbook2x-texi >/dev/null 2>&1; then
+            make install-info prefix=$HOME
+        fi
+    }
+
+fixups =
+    cat <<-EOF > ~/.emacs.d/init.d/as-git.el
+    ;; Automatically generated via mr fixups for $MR_REPO; do not edit!
+
+    (require 'as-find-file-matching-regexp-hook)
+
+    (add-to-list 'as-find-file-matching-regexp-alist
+        '("/.GIT/3rd-party/git/" . (lambda () (setq indent-tabs-mode t))))
+
+    (provide 'as-git)
+    EOF
+    cd "$MR_REPO"
+    ionice -c 3 \
+    nice -n15 \
+        make ${MAKE_FLAGS--j2} install \
+            prefix=$STOW_PKG_PATH ${CFLAGS:+CFLAGS="$CFLAGS"}
+    if which asciidoc >/dev/null 2>&1; then
+        if which xmlto >/dev/null 2>&1; then
+            make ${MAKE_FLAGS--j2} install-doc prefix=$STOW_PKG_PATH ${CFLAGS:+CFLAGS="$CFLAGS"}
+        else
+            echo "asciidoc installed but not xmlto; skipping install-doc"
+        fi
+    else
+        echo "asciidoc not installed; skipping install-doc"
+    fi
+    for exe in \
+        contrib/diff-highlight/diff-highlight \
+        contrib/remote-helpers/git-remote-{bzr,hg}
+    do
+        ln -sf $MR_REPO/$exe $STOW_PKG_PATH/bin
+    done
+    ( cd contrib/subtree && make prefix=$STOW_PKG_PATH install install-doc )
+    mr_restow_regardless
+
+[$HOME/.GIT/3rd-party/hub]
+skip = missing_exes git go
+lib =
+    set_git_origin_user github
+checkout = git clone git://github.com/github/hub
+fixups =
+    ./script/build
+    cp hub ~/bin
+    # curl http://hub.github.com/standalone -sLo ~/bin/hub &&
+    #   chmod +x ~/bin/hub
+remotes = auto_remotes
+
+[$HOME/.GIT/3rd-party/mhs-tidbits]
+skip = missing_exe git
+lib =
+    mr_init_stow_package
+    set_git_clone_name tidbits
+    set_git_origin_user mhs
+checkout = git clone git://github.com/mhs/tidbits
+remotes = auto_remotes
+fixups =
+    ln -sf $MR_REPO/lib/git-unmerged.rb ~/bin/git-unmerged
+
+[$HOME/.GIT/3rd-party/libgit2]
+skip = missing_exe git
+stowable = true
+lib =
+    mr_init_stow_package
+    set_git_origin_user libgit2
+    # pygit2 needs to build against a release, not latest master:
+    # https://github.com/libgit2/pygit2/issues/612#issuecomment-201813187
+    set_git_clone_remote_branch v0.24.1
+checkout = git clone git://github.com/libgit2/libgit2
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/libgit2
+fixups =
+    cd "$MR_REPO"
+    # https://libgit2.github.com/docs/guides/build-and-link/
+    mkdir -p build
+    cd build && \
+        cmake .. -DCMAKE_INSTALL_PREFIX=$STOW_PKG_PATH && \
+        cmake --build . --target install
+    mr_restow_regardless
+
+[$HOME/.GIT/3rd-party/pygit2]
+skip = missing_exe git || lazy
+stowable = true
+lib =
+    mr_init_stow_package
+    set_git_origin_user libgit2
+checkout = git clone git://github.com/libgit2/pygit2
+remotes = git_add_remote wandsas git://git@rpi.gnu.local/wandsas/pygit2
+fixups =
+    cd "$MR_REPO"
+    # http://www.pygit2.org/install.html
+    export LIBGIT2=$HOME # tell pygit2 where to find libgit2
+    # -rpath prevents the need to put $LIBGIT2/lib in LD_LIBRARY_PATH
+    export LDFLAGS="-Wl,-rpath='$LIBGIT2/lib',--enable-new-dtags"
+    python setup.py install \
+        --old-and-unmanageable \
+        --prefix $STOW_PKG_PATH
+    mr_restow_regardless
+
+[$HOME/.GIT/3rd-party/git-when-merged]
+skip = missing_exe git
+checkout = git clone git://github.com/mhagger/git-when-merged
+lib =
+    set_git_origin_user mhagger
+fixups =
+    ln -sf $MR_REPO/bin/$MR_NAME ~/bin/$MR_NAME
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/git-when-merged
+
+[$HOME/.GIT/adamspiers.org/git-deps]
+skip = missing_exe git
+#stowable = true
+checkout = git clone git://github.com/aspiers/git-deps
+lib =
+    set_email git@adamspiers.org
+    #mr_init_stow_package
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/git-deps
+fixups =
+    #PYTHONUSERBASE=$STOW_PKG_PATH pip install --user -e .
+    pip install --user -e .
+    ln -sf ~/.local/share/git_deps/gitfile-handler.desktop \
+       ~/.local/share/applications
+    xdg-mime default gitfile-handler.desktop x-scheme-handler/gitfile
+
+[$HOME/.GIT/3rd-party/github3.py]
+skip = lazy || missing_exe python
+stowable = true
+lib =
+    set_git_origin_user sigmavirus24
+    mr_init_stow_package
+checkout = git clone git://github.com/sigmavirus24/github3.py
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/github3.py
+fixups =
+    python setup.py install \
+        --old-and-unmanageable \
+        --prefix $STOW_PKG_PATH
+    # python setup.py install \
+    #     --single-version-externally-managed \
+    #     --record=$STOW_PKG_PATH/$MR_NAME-install.log \
+    #     --prefix $STOW_PKG_PATH
+    mr_restow_regardless
+
+[$HOME/.GIT/adamspiers.org/git-explode]
+skip = missing_exe git
+checkout = git clone git://github.com/aspiers/git-explode
+lib =
+    set_email git@adamspiers.org
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/git-explode
+fixups =
+    pip install --user -e .
+
+[$HOME/.GIT/adamspiers.org/github-notifications]
+skip = missing_dir $HOME/.GIT/adamspiers.org/mutt
+checkout = git clone git://github.com/aspiers/github-notifications
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/github-notifications
+lib =
+    set_email git@adamspiers.org
+fixups =
+    ensure_symlink_exists $HOME/bin/github-notifications "$MR_REPO/github-notifications"
+
+[$HOME/.GIT/3rd-party/git-series]
+skip = missing_exes git
+stowable = true
+lib =
+    mr_init_stow_package
+    set_git_origin_user github
+checkout = git clone git://github.com/git-series/git-series
+fixups =
+    cargo install --root $STOW_PKG_PATH
+    # To install from upstream
+    #cargo install --root $STOW_PKG_PATH $MR_NAME
+remotes = auto_remotes

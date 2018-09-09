@@ -1,0 +1,22 @@
+
+#
+# Docker container and scripts
+#
+
+[$HOME/.DOCKER/wandsas/alpine-tor-docker]
+checkout = git clone ssh://git@github.com/wandsas/alpine-tor-docker $MR_REPO
+skip = missing_exe docker
+
+[$HOME/.DOCKER/wandsas/alpine-privoxy-docker]
+checkout = git clone ssh://git@github.com/wandsas/alpine-privoxy-docker $MR_REPO
+skip = missing_exe docker
+
+[$HOME/.DOCKER/wandsas/debian-apt-cacher-ng-docker]
+checkout = git clone ssh://git@github.com/wandsas/debian-apt-cacher-ng-docker $MR_REPO
+skip = missing_exe docker
+
+[$HOME/.DOCKER/wandsas/debian-debootstrap]
+checkout = git clone ssh://git@github.com/wandsas/debian-debootstrap $MR_REPO
+skip = missing_exe docker
+
+# vim:fenc=utf-8:ft=dosini:

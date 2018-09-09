@@ -1,0 +1,305 @@
+# -*- mode: sh -*-
+
+# TODO:
+#
+# move all 3rd party emacs packages out to separate packages
+#   color-theme
+#   org
+#   epg
+#   etc.
+#
+# find-recursive.el
+# snippet.el
+
+[$HOME/.GIT/adamspiers.org/emacs]
+skip = default_skipper || missing_exe emacs
+checkout = git_clone_my_repo
+remotes = auto_remotes
+stowable = true
+
+[$HOME/.GIT/3rd-party/org-mode]
+lib =
+    set_git_clone_name orgmode
+    set_email orgmode@adamspiers.org
+skip = default_skipper || missing_exe emacs || missing_dir ~/lib/emacs/major-modes
+checkout = github_clone
+remotes =
+    auto_remotes
+    git_add_remote origin git://repo.or.cz/org-mode.git
+fixups =
+    symlink_repo_from ~/lib/emacs/major-modes/org-mode.git
+    cd "$MR_REPO/contrib/scripts" && gcc -lXss -lX11 x11idle.c -o ~/bin/x11idle
+push = unsafe
+
+[$HOME/.GIT/3rd-party/worg]
+skip = lazy || default_skipper || missing_exe emacs || missing_dir ~/lib/emacs/major-modes
+lib = set_email orgmode@adamspiers.org
+checkout = github_clone
+remotes =
+    auto_remotes
+    git_add_remote origin worg@orgmode.org:worg.git
+push = unsafe
+
+[$HOME/.GIT/3rd-party/org-sync]
+skip = lazy || default_skipper || missing_exe emacs || missing_dir ~/lib/emacs/major-modes
+lib =
+    set_email orgmode@adamspiers.org
+checkout = git_clone git://orgmode.org/org-sync.git
+remotes =
+    auto_remotes
+
+[$HOME/.GIT/3rd-party/org2blog]
+skip = lazy || default_skipper || missing_exe emacs || missing_dir ~/lib/emacs/minor-modes
+lib =
+    set_email org2blog@adamspiers.org
+    set_git_origin_user punchagan
+checkout = github_clone
+remotes =
+    auto_remotes
+
+[$HOME/.GIT/3rd-party/rpm-spec-mode]
+skip = lazy || default_skipper || missing_exe emacs || missing_dir ~/lib/emacs/minor-modes
+lib =
+    set_email rpm-spec-mode@adamspiers.org
+    set_git_origin_user bjorlykke
+checkout = github_clone
+remotes =
+    auto_remotes
+fixups =
+
+[$HOME/.GIT/3rd-party/cucumber-el]
+skip = default_skipper || missing_exe emacs || missing_dir ~/lib/emacs/major-modes || missing_exe cucumber
+lib =
+    set_email emacs@adamspiers.org
+    set_git_clone_name cucumber.el
+    set_git_origin_user michaelklishin
+checkout = github_clone
+remotes =
+    auto_remotes
+fixups = symlink_repo_from ~/lib/emacs/major-modes/cucumber
+push = unsafe
+
+# [$HOME/.GIT/3rd-party/elisp-behave]
+# skip = default_skipper || missing_exe emacs || missing_dir ~/lib/emacs/major-modes
+# lib =
+#     set_git_origin_user tomtt
+#     set_git_clone_name elisp_behave
+# checkout = github_clone
+# remotes = auto_remotes
+# fixups = symlink_repo_from ~/lib/emacs/major-modes/elisp-behave
+# push = unsafe
+
+[$HOME/.GIT/3rd-party/emacs-rails]
+skip = default_skipper || missing_exe emacs || missing_dir ~/lib/emacs/major-modes || missing_exe rails
+lib = set_email emacs@adamspiers.org
+lib =
+    set_git_origin_user remvee
+    set_git_clone_name emacs-rails
+checkout = github_clone
+remotes = auto_remotes
+fixups = symlink_repo_from ~/lib/emacs/major-modes/emacs-rails.remvee.git
+push = unsafe
+
+# FIXME: add yasnippet (and a dependency)
+# [$HOME/.GIT/3rd-party/yasnippets-rails]
+# skip = default_skipper || missing_exe emacs || missing_dir ~/lib/emacs/minor-modes
+# lib =
+#     set_git_origin_user eschulte
+# checkout = github_clone
+# remotes = auto_remotes
+# fixups = symlink_repo_from ~/lib/emacs/minor-modes/yasnippets-rails
+
+[$HOME/.GIT/3rd-party/remember]
+skip = default_skipper || missing_exe emacs || missing_dir ~/lib/emacs/major-modes
+lib = set_email emacs@adamspiers.org
+checkout = git_clone git://repo.or.cz/remember-el.git
+remotes = auto_remotes
+fixups = symlink_repo_from ~/lib/emacs/major-modes/remember.git
+push = unsafe
+
+# [$HOME/.GIT/3rd-party/dvc]
+# skip = default_skipper || missing_exe emacs || missing_dir ~/lib/emacs/major-modes
+# checkout = git_clone http://bzr.xsteve.at/dvc/
+# fixups = symlink_repo_from ~/lib/emacs/major-modes/$MR_NAME
+# stowable = true
+# push = unsafe
+
+[$HOME/.GIT/3rd-party/emacs]
+name = emacs-git
+skip = lazy || default_skipper
+lib =
+    set_email emacs@adamspiers.org
+    set_git_origin_user mirrors
+    set_git_clone_name emacs
+checkout = savannah_ro_clone emacs
+push = unsafe
+remotes =
+    auto_remotes
+
+[$HOME/.GIT/3rd-party/magit]
+skip = default_skipper || missing_exe emacs || missing_exe git
+lib =
+    set_email emacs@adamspiers.org
+    set_git_origin_user magit
+checkout = github_clone
+remotes =
+    auto_remotes
+push = unsafe
+
+[$HOME/.GIT/3rd-party/git-modes]
+skip = default_skipper || missing_exe emacs || missing_exe git
+lib =
+    set_email emacs@adamspiers.org
+    set_git_origin_user magit
+checkout = github_clone
+remotes =
+    auto_remotes
+push = unsafe
+
+[$HOME/.GIT/3rd-party/ghub]
+skip = default_skipper || missing_exe emacs || missing_exe git
+lib =
+    set_email emacs@adamspiers.org
+    set_git_origin_user magit
+checkout = github_clone
+remotes =
+    auto_remotes
+push = unsafe
+
+[$HOME/.GIT/3rd-party/magithub]
+skip = default_skipper || missing_exe emacs
+lib =
+    set_email emacs@adamspiers.org
+    set_git_origin_user vermiculus
+checkout = github_clone
+remotes =
+    auto_remotes
+push = unsafe
+
+[$HOME/.GIT/3rd-party/auto-complete-mode]
+skip = lazy || default_skipper || missing_exe emacs
+lib =
+    set_email emacs@adamspiers.org
+    set_git_origin_user m2ym
+    set_git_clone_name auto-complete
+checkout = github_clone
+fixups =
+    make install DIR=$HOME/.emacs.d/
+
+[$HOME/lib/emacs/minor-modes/rsense]
+skip = lazy || default_skipper || missing_exe emacs || missing_exe ant || missing_exe ruby
+lib =
+    set_email emacs@adamspiers.org
+    set_git_origin_user m2ym
+checkout = github_clone
+#checkout = git_clone http://cx4a.org/repo/rsense.git
+fixups =
+    ant
+    export RSENSE_HOME=$STOW_DIR/$MR_NAME
+    ln -s $MR_REPO $RSENSE_HOME
+    chmod +x $RSENSE_HOME/bin/rsense
+    ruby $RSENSE_HOME/etc/config.rb > ~/.rsense
+
+[$HOME/.CVS/tramp]
+skip = lazy || default_skipper || missing_exe emacs || missing_exe ssh
+checkout = cvs -d :pserver:anonymous@cvs.savannah.gnu.org:/sources/tramp co tramp
+
+[$HOME/.GIT/adamspiers.org/vc-osc]
+skip = lazy || default_skipper || missing_exe emacs || missing_exe osc
+lib = set_email aspiers@suse.com
+checkout = github_clone
+remotes = auto_remotes
+fixups =
+    # loaded via el-get now
+
+[$HOME/.GIT/adamspiers.org/smooth-scrolling]
+skip = lazy || default_skipper || missing_exe emacs
+lib = set_email emacs@adamspiers.org
+checkout = github_clone
+remotes = auto_remotes
+# fixups =
+#     ensure_symlink_exists ~/lib/emacs/minor-modes/smooth-scrolling.el "$MR_REPO/smooth-scrolling.el"
+
+[$HOME/.GIT/3rd-party/emacs_chrome]
+skip = lazy || default_skipper || missing_exe emacs || missing_exe google-chrome
+#stowable = true
+lib =
+    set_email emacs@adamspiers.org
+    mr_init_stow_package
+    set_git_origin_user stsquad
+checkout = github_clone
+remotes = auto_remotes
+fixups =
+    # loaded via el-get now
+    # mkdir -p "$STOW_PKG_PATH/lib/emacs/utils"
+    # ensure_symlink_exists \
+    #     "$STOW_PKG_PATH/lib/emacs/utils/edit-server.el" \
+    #     "$MR_REPO/servers/edit-server.el"
+    # mr_restow_regardless
+
+[$HOME/.GIT/3rd-party/edit-server-htmlize]
+skip = lazy || default_skipper || missing_exe emacs || missing_exe google-chrome
+#stowable = true
+lib =
+    set_email emacs@adamspiers.org
+    set_git_origin_user frobtech
+    mr_init_stow_package
+checkout = github_clone
+remotes = auto_remotes
+fixups =
+    # loaded via el-get now
+    # mkdir -p "$STOW_PKG_PATH/lib/emacs/utils"
+    # ensure_symlink_exists \
+    #     "$STOW_PKG_PATH/lib/emacs/utils/edit-server-htmlize.el" \
+    #     "$MR_REPO/edit-server-htmlize.el"
+    # mr_restow_regardless
+
+[$HOME/.GIT/3rd-party/projectile]
+skip = lazy || default_skipper || missing_exe emacs
+lib =
+    set_git_origin_user bbatsov
+checkout = github_clone
+remotes = auto_remotes
+
+[$HOME/.GIT/3rd-party/multiple-cursors.el]
+skip = lazy || default_skipper || missing_exe emacs
+lib =
+    set_git_origin_user magnars
+checkout = github_clone
+remotes = auto_remotes
+fixups =
+    # FIXME: how to develop with el-get?
+    #   https://github.com/dimitri/el-get/issues/1171
+    # Maybe create a mr helper function to create a recipe pointing to $MR_REPO?
+    #el_get_local_recipe
+
+[$HOME/.GIT/3rd-party/phi-search]
+skip = lazy || default_skipper || missing_exe emacs
+lib =
+    set_git_origin_user zk-phi
+checkout = github_clone
+remotes = auto_remotes
+
+[$HOME/.GIT/3rd-party/flx]
+skip = lazy || default_skipper || missing_exe emacs
+lib =
+    set_git_origin_user lewang
+checkout = github_clone
+remotes = auto_remotes
+
+[$HOME/.GIT/3rd-party/req-package]
+skip = lazy || default_skipper || missing_exe emacs
+lib =
+    set_email emacs@adamspiers.org
+    set_git_origin_user edvorg
+checkout = github_clone
+remotes = auto_remotes
+
+[$HOME/.GIT/3rd-party/magit-gh-pulls]
+skip = default_skipper || missing_exe emacs || missing_exe git || missing_dir ~/lib/emacs/major-modes
+lib =
+    set_email emacs@adamspiers.org
+    set_git_origin_user sigma
+checkout = github_clone
+remotes =
+    auto_remotes

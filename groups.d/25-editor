@@ -1,0 +1,20 @@
+
+#
+# UI for Neovim-GTK
+#
+[$HOME/.GIT/3rd-party/neovim-gtk]
+stowable = true
+checkout = git clone git://github.com/daa84/neovim-gtk
+update = git pull origin v0.1.1
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixups =
+  install -d ${STOW_PKG_PATH}
+  git checkout v0.1.1
+  cargo build --release
+  make PREFIX=${STOW_PKG_PATH} install
+  mr_restow_regardless
+skip = missing_exes nvim cargo
+
+# vim:fenc=utf-8:ft=dosini:

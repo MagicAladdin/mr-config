@@ -1,0 +1,37 @@
+#
+# Multimedia stuff
+#
+
+#
+# MagicAladdin/mpd-config
+#
+[$HOME/.GIT/aladdin/mpd-config]
+stowable = true
+<<<<<<< HEAD:groups.d/60-media
+checkout = git clone ssh://git@github.com/MagicAladdin/mpd-config
+||||||| merged common ancestors
+checkout = git clone ssh://git@rpi.gnu.local/wandsas/mpd-config $MR_REPO
+remotes = git_add_remote github ssh://git@github.com/wandsas/mpd-config
+=======
+checkout = git clone ssh://git@github.com/wandsas/mpd-config $MR_REPO
+remotes = git_add_remote github ssh://git@rpi.gnu.local/wandsas/mpd-config
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa:groups.d/30-media
+skip = missing_exe mpd
+
+#
+# ympd - web-interface for mpd
+#
+[$HOME/.GIT/3rd-party/ympd]
+stowable = true
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+checkout = git clone git://github.com/notandy/ympd
+fixups =
+  install -d ${STOW_PKG_PATH}
+  cmake -DCMAKE_INSTALL_PREFIX=${STOW_PKG_PATH}
+  make install
+  mr_restow_regardless
+skip = missing_exe mpd
+
+# vim:fenc=utf-8:ft=dosini:ts=2:sts=0:sw=2:et:

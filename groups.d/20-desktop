@@ -1,0 +1,183 @@
+#
+# macOS & Linux window-manger configs and extensions
+#
+
+#
+# MagicAladdin/i3-config
+#
+[$HOME/.GIT/aladdin/i3-config]
+stowable = true
+<<<<<<< HEAD
+checkout = git clone ssh://git@github.com/MagicAladdin/i3-config
+||||||| merged common ancestors
+checkout = git clone ssh://git@rpi.gnu.local/wandsas/i3-config
+remotes = git_add_remote github ssh://git@github.com/wandsas/i3-config
+=======
+checkout = git clone ssh://git@github.com/wandsas/i3-config
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/i3-config
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+
+#
+# MagicAladdin/fluxbox-config
+#
+[$HOME/.GIT/aladdin/fluxbox-config]
+stowable = true
+<<<<<<< HEAD
+checkout = git cloen ssh://git@github.com/MagicAladdin/fluxbox-config
+||||||| merged common ancestors
+checkout = git cloen ssh://git@rpi.gnu.local/wandsas/fluxbox-config
+remotes = git_add_remote github ssh://git@github.com/wandsas/fluxbox-config
+=======
+checkout = git clone ssh://git@github.com/wandsas/fluxbox-config
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/fluxbox-config
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+
+#
+# MagicAladdin/xsession-config
+#
+[$HOME/.GIT/aladdin/xsession-config]
+stowable = true
+<<<<<<< HEAD
+checkout = git clone ssh://git@github.com/xsession-config
+||||||| merged common ancestors
+checkout = git clone ssh://git@rpi.gnu.local/wandsas/xsession-config
+remotes = git_add_remote github ssh://git@github.com/wandsas/xsession-config
+=======
+checkout = git clone ssh://git@github.com/wandsas/xsession-config
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/xsession-config
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+
+#
+# MagicAladdin/xdg-config
+#
+<<<<<<< HEAD
+[$HOME/.GIT/aladdin/xdg-config]
+||||||| merged common ancestors
+[$HOME/.GIT/wandsas/xdg-config]
+=======
+[$HOME/.GIT/wandsas/xdg-apps]
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+stowable = true
+<<<<<<< HEAD
+checkout = git clone ssh://git@github.com/MagicAladdin/xdg-config
+||||||| merged common ancestors
+checkout = git clone ssh://git@rpi.gnu.local/wandsas/xdg-config
+remotes = git_add_remote github ssh://git@rpi.gnu.local/wandsas/xdg-config
+=======
+checkout = git clone ssh://git@github.com/wandsas/xdg-apps
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/xdg-apps
+lib =
+  mr_stow_target_usr_local
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+
+#
+# i3 betterlockscreen
+#
+[$HOME/.GIT/3rd-party/betterlockscreen]
+stowable = true
+checkout = git clone git://github.com/pavanjadhaw/betterlockscreen
+<<<<<<< HEAD
+||||||| merged common ancestors
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/betterlockscreen
+=======
+remotes = git_add_remote wandsas ssh://git@rpi.orwell.local/3rd-party/betterlockscreen
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixups =
+  install -d $STOW_PKG_PATH/bin
+  install -m 755 betterlockscreen $STOW_PKG_PATH/bin
+  mr_restow_regardless
+
+#
+# yet another fork of i3lock
+#
+[$HOME/.GIT/3rd-party/i3lock-color]
+stowable = true
+checkout = git clone git://github.com/PandorasFox/i3lock-color
+<<<<<<< HEAD
+||||||| merged common ancestors
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/i3lock-color
+=======
+remotes = git_add_remote wandsas ssh://git@rpi.orwell.local/3rd-party/i3lock-color
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixups =
+  if ! [ -e configure ]; then
+    autoreconf -i
+  fi
+  ./configure --prefix=/usr/local
+  make install prefix=$STOW_PKG_PATH
+  mr_restow_regardless
+
+
+#
+# Rofi frontend for sufraw
+#
+[$HOME/.GIT/3rd-party/rofi-scripts]
+stowable = true
+checkout = git clone git://github.com/carnager/rofi-scripts
+<<<<<<< HEAD
+||||||| merged common ancestors
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/rofi-scripts
+=======
+remotes = git_add_remote wandsas ssh://git@rpi.orwell.local/3rd-party/rofi-scripts
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixups =
+  cd rofi-surfraw
+  install -d $STOW_PKG_PATH/bin
+  install -m 755 rofi-surfraw $STOW_PKG_PATH/bin
+  mr_restow_regardless
+
+#
+# Rofi frontend for pass
+#
+[$HOME/.GIT/3rd-party/rofi-pass]
+stowable = true
+checkout = git clone git://github.com/carnager/rofi-pass
+<<<<<<< HEAD
+||||||| merged common ancestors
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/rofi-pass
+=======
+remotes = git_add_remote wandsas ssh://git@rpi.orwell.local/3rd-party/rofi-pass
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixups =
+  install -d $STOW_PKG_PATH/bin
+  install -m 755 rofi-pass $STOW_PKG_PATH/bin
+  install -m 755 addpass $STOW_PKG_PATH/bin
+  mr_restow_regardless
+
+<<<<<<< HEAD
+||||||| merged common ancestors
+
+#
+# chunkwm - A tiling window-manager for macOS
+#
+[$HOME/.GIT/wandsas/chunkwm-config]
+stowable = true
+checkout = git clone ssh://git@rpi.gnu.local/wandsas/chunkwm-config
+remotes = git_add_remote github ssh://git@github.com/wandsas/chunkwm-config
+skip = not_darwin
+
+=======
+
+#
+# chunkwm - A tiling window-manager for macOS
+#
+[$HOME/.GIT/wandsas/chunkwm-config]
+stowable = true
+checkout = git clone ssh://git@github.com/wandsas/chunkwm-config
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/wandsas/chunkwm-config
+skip = not_darwin
+
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+# vim:fenc=utf-8:ft=dosini:

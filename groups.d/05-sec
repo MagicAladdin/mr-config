@@ -1,0 +1,100 @@
+
+<<<<<<< HEAD
+############################################################
+# CONFIDENTIAL REPOS Please be aware of CONFIDENTIAL REPOS #
+############################################################
+||||||| merged common ancestors
+#
+# Confidential repositories - Please be aware of!
+#
+=======
+###################################################
+# CONFIDENTIAL REPOSITORIES - PLEASE BE AWARE OF! #
+###################################################
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+
+#
+# aladdin/ssh-aladdin.sec - My OpenSSH keys
+#
+[$HOME/.ssh]
+order = 2
+<<<<<<< HEAD
+name = ssh-aladdin
+checkout = git clone ssh://git@rpi.gnu.local/aladdin/ssh-aladdin
+post_checkout = chmod -R go-rwx $MR_REPO
+skip = ! aladdin || ! z800
+||||||| merged common ancestors
+name = ssh-wandsas
+stowable = true
+checkout = git clone ssh://git@rpi.gnu.local/wandsas/ssh-wandsas.sec
+#skip = ! wandsas || ! z800
+=======
+checkout = git clone ssh://git@rpi.gnu.local/wandsas/ssh-config $MR_REPO
+post_checkout = chmod -R go-rwx $MR_REPO
+skip = ! wandsas || ! z800
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+
+#
+# aladdin/gnupg-aladdin - My PGP keys
+#
+<<<<<<< HEAD
+||||||| merged common ancestors
+[$HOME/.GIT/wandsas/gnupg-wandsas.sec]
+order = 3
+name = gnupg-wandsas
+stowable = true
+checkout = git clone ssh://git@rpi.gnu.local/wandsas/gnupg-wandsas.sec
+skip = ! wandsas || ! z800
+=======
+[$HOME/.gnupg]
+order = 3
+checkout = git clone ssh://git@rpi.gnu.local/wandsas/gnupg-config $MR_REPO
+post_checkout = chmod -R go-rwx $MR_REPO
+skip = ! wandsas || ! z800
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+
+<<<<<<< HEAD
+[$HOME/.gnupg]
+order = 3
+name = gnupg-aladdin
+checkout = git clone ssh://git@.gnu.local/aladdin/gnupg-aladdin
+post_checkout = chmod -R go-rwx $MR_REPO
+skip = ! aladdin || ! z800
+||||||| merged common ancestors
+[$HOME/.pass-wandsas]
+checkout = git clone ssh://git@rpi.gnu.local/wandsas/pass-wandsas $MR_REPO
+skip = ! wandsas || ! z800
+=======
+#
+# wandsas/pass-wandsas
+#
+[$HOME/.pass-wandsas]
+checkout = git clone ssh://git@rpi.gnu.local/wandsas/pass-wandsas $MR_REPO
+post_checkout = chmod -R go-rwx $MR_REPO
+skip = ! wandsas || ! z800
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+
+<<<<<<< HEAD
+#
+# pass - The Unix password manager
+#
+[$HOME/.password-store]
+name = pass-aladdin
+checkout = git clone ssh://git@rpi.gnu.local/aladdin/pass-aladdin $MR_REPO
+post_checkout = chmod -R go-rwx $MR_REPO
+skip = ! aladdin || ! z600
+||||||| merged common ancestors
+[$HOME/.pass-android]
+checkout = git clone ssh://git@rpi.gnu.local/wandsas/pass-android $MR_REPO
+skip = ! wandsas || ! z800
+=======
+#
+# wandsas/pass-android
+#
+[$HOME/.pass-android]
+checkout = git clone ssh://git@rpi.gnu.local/wandsas/pass-android $MR_REPO
+post_checkout = chmod -R go-rwx $MR_REPO
+skip = ! wandsas || ! z800
+>>>>>>> b0559395d042f611e2d9ef764b285fa7a07dbeaa
+
+# vim:fenc=utf-8:ft=dosini:ts=2:sts=0:sw=2:et:

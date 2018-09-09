@@ -1,0 +1,52 @@
+#
+# Stow helper functions
+#
+
+# @FUNCTION: Init stow for myrepos(mr)
+mr_init_stow_package () {
+  STOW_PKG_TYPE=directory
+  STOW_NO_AUTOMATIC_ACTIONS=yes
+  set_stow_common_opts
+}
+
+mr_stow_target_usr_local () {
+    export STOW_TARGET=/usr/local
+    export STOW_DIR=/usr/local/.STOW
+}
+
+# @FUNCTION: Create a directory for the files to stow, or empty the previous directory.
+mr_create_or_update_stow_package () {
+    if [ -d "${STOW_PKG_PATH}" ]; then
+        rm -rf ${STOW_PKG_PATH}
+        debug "$MR_REPO: cleanup previous created stow package"
+    else
+        install -d ${STOW_PKG_PATH}
+        debug "$MR_REPO: created stow package"
+    fi
+    mr_init_stow_package
+}
+
+# @FUNCTION: install/uninstall stow info hooks
+mr_stow_info_hooks () {
+  mr_pre_unstow () {
+    stow_uninstall_info
+  }
+  mr_post_stow () {
+    stow_install_info
+  }
+}
+
+# Thes are intended to be called from the mr_pre_unstow and
+# mr_post_stow hooks supported by the stow plug-in module for Myrepos(mr)
+
+# @FUNCTION: uninstall stow info. Intended to be called from mr_pre_unstow. Supported by the stow plugin module for Myrepos(mr)
+stow_uninstall_info () {
+  install-info --delete --quiet --info-dir=$HOME/share/info $STOW_PKG_PATH/share/info/*.info
+}
+
+# @FUNCTION: install stow info. Intended to be called from mr_post_stow info. Supported by the stow plugin module for Myrepos(mr)
+stow_install_info () {
+  install-info --info-dir=$HOME/share/info $STOW_PKG_PATH/share/info/*.info
+}
+
+# vim:fenc=utf-8:ft=sh:

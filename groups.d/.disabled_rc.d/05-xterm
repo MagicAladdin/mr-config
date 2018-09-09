@@ -1,0 +1,127 @@
+#
+# Xterminal apps wandsas 2018/08/20
+#
+
+#
+# rxvt-unicode
+#
+[$HOME/.GIT/3rd-party/rxvt-unicode]
+stowable = true
+checkout = git clone git://github.com/exg/rxvt-unicode
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/rxvt-unicode
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixups =
+  mr_restow_regardless
+#skip = lazy
+skip = true
+
+
+#
+# URxvt extensions
+#
+[$HOME/.GIT/3rd-party/URxvt-perls]
+stowable = true
+checkout = git clone git://github.com/muennich/urxvt-perls
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/urxvt-perls
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixups =
+  mr_restow_regardless
+#skip = lazy
+skip = true
+
+#
+# Xterm
+#
+[$HOME/.GIT/3rd-party/xterm]
+stowable = true
+checkout = git clone git://salsa.debian.org/xorg-team/app/xterm.git
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/xterm
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixups =
+  mr_restow_regardless
+#skip = lazy
+skip = true
+
+#
+# Enhanced vte terminal widget
+#
+[$HOME/.GIT/3rd-party/vte-ng]
+stowable = true
+checkout = git clone git://github.com/thestinger/vte-ng
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/vte-ng
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixups =
+  ./autogen.sh
+  make PREFIX=$STOW_PKG_PATH install
+  mr_restow_regardless
+skip = true
+
+#
+# Termite - A keyboard-centric VTE-based terminal
+#
+[$HOME/.GIT/3rd-party/termite]
+stowable = true
+checkout = git clone --recursive git://github.com/thestinger/termite
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/termite
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixed =
+  make
+  mr_restow_regardless
+skip = true
+
+#
+# Kitty - Fast, GPU based terminal emulator
+#
+[$HOME/.GIT/3rd-party/kitty]
+stowable = true
+checkout = git clone git://github.com/kovidgoyal/kitty
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/kitty
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixups =
+  make
+  mr_restow_regardless
+skip = true
+
+#
+# Alacritty - Simple and fast terminal using the GPU for rendering written in Rust
+#
+[$HOME/.GIT/3rd-party/alacritty]
+stowable = true
+checkout = git clone git://github.com/jwilm/alacritty
+remotes = git_add_remote wandsas ssh://git@rpi.gnu.local/3rd-party/alacritty
+lib =
+  mr_stow_target_usr_local
+  mr_init_stow_package
+fixups =
+  make clean
+  cargo build --release
+  install -d $STOW_PKG_PATH/bin
+  install -d $STOW_PKG_PATH/share/info
+  install -d $STOW_PKG_PATH/share/man/man1
+  install -d $STOW_PKG_PATH/share/applications
+  install -d $STOW_PKG_PATH/share/zsh/site-functions
+  install -m 755 target/release/alacritty -t $STOW_PKG_PATH/bin
+  install -m 644 alacritty.desktop -t $STOW_PKG_PATH/share/applications
+  install -m 644 alacritty.info -t $STOW_PKG_PATH/share/info
+  install -m 644 alacritty.man -t $STOW_PKG_PATH/share/man/man1
+  #install -m 644 alacritty-completions.zsh -t $STOW_PKG_PATH/share/zsh/site-functions/_alacritty
+  # User config
+  #install -d ${XDG_CONFIG_HOME:-$HOME/.config}/alacritty
+  #install -m 644 alacritty.yml -d ${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/alacritty.yml
+  mr_restow_regardless
+#skip = missing_exe cargo
+skip = true
+
+# vim:fenc=utf-8:ft=dosini:ts=2:sts=2:sw=2:et:
