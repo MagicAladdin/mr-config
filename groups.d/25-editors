@@ -12,15 +12,6 @@ remotes = git_add_remote upstream ssh://git@github.com/wandsas/nvim-config
 skip = missing_exe nvim
 
 #
-# aladdin-nvim-light - Neovim config without any plugin-manager
-#
-[$HOME/.GIT/aladdin/nvim-light]
-name = nvim-light
-checkout = git clone ssh://git@github.com/MagicAladdin/nvim-light
-remotes = git_add_remote upstream ssh://git@github.com/wandsas/nvim-light
-skip = missing_exe nvim
-
-#
 # 3rd-party/neovim-gtk - UI for Neovim
 #
 [$HOME/.GIT/3rd-party/neovim-gtk]
