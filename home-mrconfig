@@ -12,7 +12,7 @@ include =
         include_lib_dirs ~/.config/mr/lib.d
     fi
 
-[.config/mr]
+[$HOME/.config/mr]
 order = 1
 name = mr-config
 chain = true
